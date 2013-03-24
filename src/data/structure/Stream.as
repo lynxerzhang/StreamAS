@@ -75,7 +75,6 @@ public class Stream
 		if (this.isEmpty()) {
 			return null;
 		}
-		var n:int = index;
 		var s:Stream = this;
 		while (index-- > 0 && s) {
 			s = s.tail();
