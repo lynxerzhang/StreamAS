@@ -203,7 +203,7 @@ public class Stream
 	 * @see print method
 	 */
 	public function walk(func:Function):void {
-		return this.map(function(data:*):*{
+		this.map(function(data:*):*{
 			func(data);
 			return data;
 		}).force();
