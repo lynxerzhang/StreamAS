@@ -33,7 +33,7 @@ public class Stream
 				tailPromise = function():Stream {
 					//return new Stream();
 					return _empty;
-				}
+				};
 			}
 		}
 		this._tailPromise = tailPromise;
@@ -278,7 +278,7 @@ public class Stream
 		var s:Stream = this;
 		return new Stream(func(s.head(), other.head()), function():Stream {
 			return s.tail().zip(func, other.tail());
-		})
+		});
 	}
 	
 	/**
