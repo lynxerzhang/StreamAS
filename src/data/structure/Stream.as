@@ -179,7 +179,7 @@ public class Stream
 	 * @param	factor
 	 * @return
 	 */
-	public function scale(factor:uint):Stream {
+	public function scale(factor:Number):Stream {
 		return this.map(function(data:*):* {
 			return data * factor;
 		});
@@ -245,8 +245,6 @@ public class Stream
 		}
 		return tail.filterNot(func);
 	}
-	
-	
 	
 	/**
 	 * 打印当前Stream对象中存储的指定项的位数
@@ -360,7 +358,10 @@ public class Stream
 	 * @param	hightest
 	 * @return
 	 */
-	public static function range(lower:uint, hightest:uint):Stream {
+	public static function range(lower:* = undefined, hightest:* = undefined):Stream {
+		if (lower == undefined) {
+			lower = 1;
+		}
 		if (lower == hightest) {
 			return new Stream(lower);
 		}
