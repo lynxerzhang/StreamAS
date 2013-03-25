@@ -33,7 +33,7 @@ public class Stream
 				tailPromise = function():Stream {
 					//return new Stream();
 					return _empty;
-				}
+				};
 			}
 		}
 		this._tailPromise = tailPromise;
@@ -75,7 +75,6 @@ public class Stream
 		if (this.isEmpty()) {
 			return null;
 		}
-		var n:int = index;
 		var s:Stream = this;
 		while (index-- > 0 && s) {
 			s = s.tail();
@@ -203,7 +202,7 @@ public class Stream
 	 * @see print method
 	 */
 	public function walk(func:Function):void {
-		return this.map(function(data:*):*{
+		this.map(function(data:*):*{
 			func(data);
 			return data;
 		}).force();
@@ -278,7 +277,7 @@ public class Stream
 		var s:Stream = this;
 		return new Stream(func(s.head(), other.head()), function():Stream {
 			return s.tail().zip(func, other.tail());
-		})
+		});
 	}
 	
 	/**
